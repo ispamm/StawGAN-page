@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation.">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://404.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/ispamm/HI2I">
+            Hypercomplex Image to Image Translation
+          </a>
+          <!-- <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://luigisigillo.github.io/">Luigi Sigillo</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://sites.google.com/uniroma1.it/eleonoragrassucci/home-page">Eleonora Grassucci</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://danilocomminiello.site.uniroma1.it/">Danilo Comminiello</a><sup>1</sup>,
+            </span>
+            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Dept. of Information Engineering, Electronics and Telecom., Sapienza University of Rome, Italy,</span>
+            <span class="author-block"><sup>2</sup>Leonardo AI Labs</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link.
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ispamm/StawGAN"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/VisDrone/DroneVehicle"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+            <figure  style="grid-column: text">
+            <img src="static/images/StawGAN-architecture.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+              <figcaption style="display:flex; justify-content: center"> Architecture of StawGAN. We show the part inside of the generator, to explore the shared connections between the two different flows. Indeed this is a translation from RGB to IR, but the same process holds for the contrary.</figcaption>
+          </figure>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            This paper addresses the problem of translating night-time thermal infrared images, which are the most adopted image modalities to analyze night-time scenes, to daytime color images (NTIT2DC), which provide better perceptions of objects.
+            We introduce a novel model that focuses on enhancing the quality of the target generation without merely colorizing it. 
+          </p>
+          <p>
+            The proposed structural aware (StawGAN) enables the translation of better-shaped and high-definition objects in the target domain.
+            We test our model on aerial images of the DroneVeichle dataset containing RGB-IR paired images.
+            The proposed approach produces a more accurate translation with respect to other state-of-the-art image translation models.   
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <figure  style="grid-column: text">
+      <img src="static/images/StawGAN-results.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+      <figcaption style="display:flex; justify-content: center">  Random samples of StawGAN image modality translations on the DroneVehicle dataset. 
+        The first column refers to the original domain images, IR in the first row, and RGB in the second. 
+        The corresponding translations in the RGB domain are in the first row and subsequent columns, while IR is in the second one.
+        Our approach produces better samples in both domains with respect to other state-of-the-art models. </figcaption>    </figure>
+
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            We compare our method with different models that reached state-of-the-art performance on other datasets.
+            We test pix2pixHD used for unpaired image-to-image translation, StarGAN v2 interesting for 
+            the characteristics of extracting the style code from the scene and not injecting it with a fixed label, 
+            PearlGAN introduced for this specific task of translation from IR to RGB and finally the original version of TarGAN.  
+            shows the comparison on randomly chosen samples.
+          </p>
+
+          <p>
+            For the translation IR <span>&#8594;</span> RGB the results of PearlGAN are visually poor considering because of the green color of the buildings, supposing that it interprets them as vegetation. 
+            Regarding the translation RGB <span>&#8594;</span> IR the results of StarGAN v2 are slightly blurred, mostly on the targets, PearlGAN does not translate correctly all the cars, and some of them are ghosted. 
+            TarGAN and pix2pixHD samples are visually comparable to our results even though our method produces more realistic colors, but still, if we focus on the red boxes, we notice a concrete difference.
+            From RGB <span>&#8594;</span> IR pix2pixHD loses the details of the target car, while TarGAN shows black holes and paler.
+          </p>
+          <figure  style="grid-column: text">
+            <img src="static/images/StawGAN-resultsIR.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+            <figcaption style="display:flex; justify-content: center">  </figcaption>
+          </figure>
+          <p>
+            For the opposite translation, both the color and the shape of the StawGAN image are more appealing with respect to pix2pixHD. 
+            Furthefrmore, TarGAN loses information on the targets, since the image is darker, making it difficult to distinguish the shape and the type of vehicle. 
+            In the end, the proposed StawGAN produces high-definition samples with realistic colorization and well-shaped and defined targets. 
+            Table reports objective metrics results for the image modality translation task. From this analysis, we can confirm that the FID of pix2pixHD is higher with respect to our approach that scores the second-best value, but our method surpasses it in all the other metrics.
+          </p>
+          <figure  style="grid-column: text">
+            <img src="static/images/StawGAN-resultsRGB.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+            <figcaption style="display:flex; justify-content: center">  </figcaption>
+          </figure>
+          <!-- <figure  style="grid-column: text">
+            <img src="static/images/StawGAN-resultsRGB2.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+            <figcaption style="display:flex; justify-content: center">   </figcaption>
+          </figure> -->
+            Those results confirm our theoretical statements, and prove the effectiveness of the proposed method with respect to the state of the art, clearly showing the significance of the proposed StawGAN.
+            
+          </p>
+          <figure  style="grid-column: text">
+            <img src="static/images/StawGAN-resultsRGB3.png" style="width: 100%; margin-top: 1rem;display: block; margin-left: auto; margin-right: auto;"/>
+            <figcaption style="display:flex; justify-content: center">   </figcaption>
+          </figure>
+          <style type="text/css">
+            .tg  {border-collapse:collapse;border-spacing:0;}
+            .tg td{border-color:black;border-style:solid;border-width:1px;
+              font-family:Arial, sans-serif;font-size:14px;
+                    overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg th{border-color:black;border-style:solid;border-width:1px;
+              font-family:Arial, sans-serif;font-size:14px;
+                    overflow:hidden;padding:10px 5px;word-break:normal;}
+            .tg .tg-c3ow{border-color:inherit;text-align:center;
+                          vertical-align:top}
+            .tg .tg-zw5y{border-color:inherit;text-align:center;text-decoration:underline;
+                        vertical-align:top}
+            .tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;
+                        vertical-align:top}
+            </style>
+            <table class="tg">
+            <thead>
+              <tr>
+                <td class="tg-c3ow">Model</td>
+                <td class="tg-c3ow">FID</td>
+                <td class="tg-c3ow">IS</td>
+                <td class="tg-c3ow">PSNR</td>
+                <td class="tg-c3ow">SSIM</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-c3ow">pix2pixHD</td>
+                <td class="tg-zw5y">0.0259</td>
+                <td class="tg-7btt">4.2223</td>
+                <td class="tg-c3ow">11.2101</td>
+                <td class="tg-c3ow">0.2125</td>
+              </tr>
+              <tr>
+                <td class="tg-c3ow">StarGAN v2</td>
+                <td class="tg-c3ow">0.4476</td>
+                <td class="tg-c3ow">2.7190</td>
+                <td class="tg-c3ow">11.2211</td>
+                <td class="tg-zw5y">0.2297</td>
+              </tr>
+              <tr>
+                <td class="tg-c3ow">PearlGAN</td>
+                <td class="tg-c3ow">0.0743</td>
+                <td class="tg-zw5y">3.9441</td>
+                <td class="tg-c3ow">10.8925</td>
+                <td class="tg-c3ow">0.2046</td>
+              </tr>
+              <tr>
+                <td class="tg-c3ow">TarGAN</td>
+                <td class="tg-c3ow">0.1177</td>
+                <td class="tg-c3ow">3.4285</td>
+                <td class="tg-zw5y">11.7085</td>
+                <td class="tg-c3ow">0.2382</td>
+              </tr>
+              <tr>
+                <td class="tg-c3ow">StawGAN</td>
+                <td class="tg-7btt">0.0119</td>
+                <td class="tg-c3ow">3.5163</td>
+                <td class="tg-7btt">11.8251</td>
+                <td class="tg-7btt">0.2453</td>
+              </tr>
+            </tbody>
+            </table>
+            <p>We perform also a secondary analysis on the segmentation capability of the proposed model with respect to the TarGAN, which is the only model from the one we compare that performs segmentation too. The comparison shows that our model gains better performance with respect to the TarGAN.
+              Since segmented images have in both domains large black zones, the translation task results easier to be accomplished. 
+              Therefore, the segmentation metrics are evaluating mainly the generation of concrete target shapes.
+               We report objective metrics results for this task.</p>
+              <table class="tg">
+              <thead>
+                <tr>
+                  <td class="tg-c3ow">Model</td>
+                  <td class="tg-c3ow">DSC</td>
+                  <td class="tg-c3ow">S-Score</td>
+                  <td class="tg-c3ow">MAE</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tg-c3ow">TarGAN</td>
+                  <td class="tg-c3ow">79.34</td>
+                  <td class="tg-c3ow">85.08</td>
+                  <td class="tg-c3ow">0.0115</td>
+                </tr>
+                <tr>
+                  <td class="tg-c3ow">StawGAN</td>
+                  <td class="tg-7btt">84.27</td>
+                  <td class="tg-7btt">88.61</td>
+                  <td class="tg-7btt">0.0081</td>
+                </tr>
+              </tbody>
+              </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@ARTICLE{,
+      author={Sigillo, Luigi and Grassucci, Eleonora and Comminiello, Danilo},
+      journal={2023 IEEE International Symposium on Circuits and Systems (ISCAS)}, 
+      title={StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation.}, 
+      year={2023},
+      volume={},
+      number={},
+      pages={},
+      doi={}
+    }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
