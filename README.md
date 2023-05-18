@@ -1,6 +1,6 @@
 # StawGAN
 
-This is the repository that contains source code for the website of [StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation](https://stawgan.github.io).
+This is the repository that contains source code for the website of [StawGAN: Structural-Aware Generative Adversarial Networks for Infrared Image Translation](https://ispamm.github.io/StawGAN-page/).
 
 If you are looking for the implementation code, you can find it at [StawGAN](https://github.com/LuigiSigillo/StawGAN).
 If you find StawGAN useful for your work please cite:
